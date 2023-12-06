@@ -1,0 +1,11 @@
+a{
+    padding: 20px;
+    border: 1px solid black;
+    text-decoration: none;
+}
+a:hover{
+    background: green;
+}
+body{
+    margin-top: 50px;
+}
