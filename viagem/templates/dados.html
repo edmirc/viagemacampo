@@ -5,7 +5,7 @@
     <H1>Despesas da Vaigem</H1>
     <form action="{% url 'dados' %}" class="row g-3" method="post">
         {% csrf_token %}
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label for="id" class="form-label">ID da Despesa</label>
             <input type="number" name="id" id="id" class="form-control" readonly>
         </div>
@@ -19,9 +19,17 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label for="data" class="form-label">Data da Despesa</label>
             <input type="date" name="data" id="data" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+            <label for="carro" class="form-label">Selecione o carro</label>
+            <select name="carro" id="carro" class="form-select">
+                {% for item in carro %}
+                <option value="{{ item.id }}">{{ item.placa }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="col-md-4">
             <label for="tipo" class="form-label">Selecione a Despesa</label>
@@ -62,14 +70,6 @@
                 <option selected></option>
                 {% for item in cidade %}
                 <option value="{{ item.id }}">{{ item.nome}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="carro" class="form-label">Selecione o carro</label>
-            <select name="carro" id="carro" class="form-select">
-                {% for item in carro %}
-                <option value="{{ item.id }}">{{ item.placa }}</option>
                 {% endfor %}
             </select>
         </div>

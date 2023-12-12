@@ -3,6 +3,7 @@ from django.contrib import messages
 from .banco.mybanco import CidadeBanco, TiposBanco, CarroBanco
 from .models import Cidades, Carros, Tipos, Pagamentos, NomeVaigem, Dados
 from django.contrib import messages
+from django.views.generic import TemplateView
 
 # Create your views here.
 
@@ -28,7 +29,6 @@ def cidade(request):
     }
     return render(request, 'cidade.html', context)
 
-
 def dados(request):
     if request.method == 'POST':
         res: bool = Dados().salvaDados(request)
@@ -36,6 +36,7 @@ def dados(request):
             messages.success(request, 'Dados Salvos com sucesso!!')
         else:
             messages.error(request, 'Dados não salvos!!')
+    placa = Dados().lastKm()
     context = {
         'nomev': NomeVaigem.objects.all(),
         'tipos': Tipos.objects.all(),
@@ -118,3 +119,4 @@ def pagamentos(request):
         'pagamento': Pagamentos.objects.all().order_by('id')
     }
     return render(request, 'pagamento.html', context)
+

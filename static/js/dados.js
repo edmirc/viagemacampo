@@ -24,14 +24,25 @@ function despesa(){
     var kmr = document.getElementById('kmr');
     var consumo = document.getElementById('consumo');
     var cidade = document.getElementById('cidade');
+    var qnt = document.getElementById('qnt');
     if (despesa.value == '5'){
         kmi.value = '';
         kmf.value = '';
         kmr.value = '';
         consumo.value = '';
+        qnt.value = '';
         kmi.readOnly = false;
         kmf.readOnly = false;
+        qnt.readOnly = false;
     }else{
+        if (despesa.value == '4' || despesa.value == '7'){
+            var qnt = document.getElementById('qnt'); 
+            qnt.value = '0';
+            qnt.readOnly = true;
+        }else{
+            qnt.value = '';
+            qnt.readOnly = false;
+        };
         kmi.value = 0;
         kmf.value = 0;
         kmr.value = 0;

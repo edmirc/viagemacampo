@@ -18,6 +18,7 @@ class NomeVaigem(models.Model):
     nome = models.CharField(max_length=150, blank=True, unique=True, null=True)
     dataI = models.DateField(name='dataInicial', null=True)
     dataF = models.DateField(name='DataFinal', null=True)
+    carro = models.ForeignKey(Carros, on_delete=models.CASCADE, null=True, blank=True)
     atividade = models.BooleanField(name='atividade')
 
 class Pagamentos(models.Model):
@@ -35,7 +36,6 @@ class Dados(models.Model):
     cidade = models.ForeignKey(Cidades, name='idcidade', on_delete=models.CASCADE)
     viagem = models.ForeignKey(NomeVaigem, name='idviagem', on_delete=models.CASCADE)
     pagamento = models.ForeignKey(Pagamentos, name='idpagamento', on_delete=models.CASCADE)
-    carro = models.ForeignKey(Carros, name='idcarro', on_delete=models.CASCADE)
 
     def salvaDados(self, request) -> bool:
         try:
@@ -67,3 +67,5 @@ class Dados(models.Model):
             return True
         except:
             return False
+    
+    

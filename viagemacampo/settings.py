@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'viagem',
-    'bootstrap4',
-    'stdimage',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +77,9 @@ WSGI_APPLICATION = 'viagemacampo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'acampoviagem',
-        'USER': 'edinho',
-        'PASSWORD': '@Ede025978',
+        'NAME': 'viagem',
+        'USERNAME': 'root',
+        'PASSWORD': 'Ede025978',
         'HOST': 'localhost',
     }
 }
